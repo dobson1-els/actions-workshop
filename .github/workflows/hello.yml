@@ -1,15 +1,16 @@
 name: Hello World Training Workflow
 
-on:
-  workflow_dispatch:
+on: push
+
+name: Cowsays
 
 jobs:
-  greet:
-    env:
-      MY_ENV: "Rich D"
+  cow:
+    name: Cowsays
     runs-on: ubuntu-latest
     steps:
-    - name: Run a multi-line script
-      run: |
-        echo "Hello $MY_ENV"
-        echo "Hello $GITHUB_ACTOR"
+      - name: Ship it
+        uses: mscoutermarsh/cowsays-action@master
+        with:
+          text: "ship ship ship!"
+          color: "red"
